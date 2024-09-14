@@ -6,7 +6,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  cluster_name = "abhi-eks-${random_string.suffix.result}"
+  cluster_name = "landry-eks-${random_string.suffix.result}"
 }
 
 resource "random_string" "suffix" {
@@ -16,7 +16,7 @@ resource "random_string" "suffix" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "5.7.0"
+  version = "5.13.0"
 
   name                 = "abhi-eks-vpc"
   cidr                 = var.vpc_cidr
